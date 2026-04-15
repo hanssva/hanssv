@@ -156,7 +156,7 @@
 
         <div class="slide">
             <h1>Our Memories</h1>
-            <img src="https://github.com/hanssva/hanssv/blob/main/WhatsApp%20Image%202026-04-15%20at%2011.39.34%20PM.jpeg" alt="Foto Kita">
+            <img src="WhatsApp%20Image%202026-04-15%20at%2011.39.34%20PM.jpeg" alt="Foto Kita">
             <p>Banyak hal yang udah kita lewatin tpi itu ga cukup kalau aku spill semuanya, tapi masih ada satu kejutan lagi buat kamu...</p>
             <button onclick="nextSlide()">Lihat Hadiah</button>
         </div>
@@ -182,7 +182,6 @@
     </div>
 
     <script>
-        // Logika untuk perpindahan slide
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -207,7 +206,6 @@
             showSlide(currentSlide);
         }
 
-        // Script untuk memunculkan efek animasi hati di background
         function createHearts() {
             const container = document.getElementById('hearts-container');
             for (let i = 0; i < 15; i++) {
