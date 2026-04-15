@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 3rd Monthversary!</title>
+    <style>
+        /* Gaya dasar untuk mereset margin dan mengatur font */
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #ffe6e6; /* Warna latar pink lembut */
+            overflow: hidden; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
+
+        /* Kontainer utama untuk slide */
+        .slider-container { 
+            position: relative; 
+            width: 85%; 
+            max-width: 600px; 
+            height: 450px; 
+            background: white; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+            overflow: hidden; 
+        }
+
+        /* Pengaturan masing-masing slide */
+        .slide { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 30px; 
+            box-sizing: border-box; 
+            opacity: 0; 
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out; 
+            transform: translateY(20px);
+            pointer-events: none; 
+        }
+
+        /* Slide yang sedang aktif */
+        .slide.active { 
+            opacity: 1; 
+            transform: translateY(0);
+            pointer-events: auto; 
+        }
+
+        /* Tipografi */
+        h1 { color: #ff4d4d; font-size: 2.2em; margin-bottom: 10px; }
+        p { color: #555; font-size: 1.2em; line-height: 1.6; }
+        
+        /* Tombol interaktif */
+        button { 
+            margin-top: 25px; 
+            padding: 12px 25px; 
+            border: none; 
+            background-color: #ff4d4d; 
+            color: white; 
+            border-radius: 30px; 
+            font-size: 1em; 
+            font-weight: bold;
+            cursor: pointer; 
+            transition: background 0.3s, transform 0.2s; 
+        }
+        button:hover { 
+            background-color: #cc0000; 
+            transform: scale(1.05);
+        }
+
+        /* Gaya untuk gambar/foto */
+        img { 
+            max-width: 80%; 
+            max-height: 200px; 
+            object-fit: cover;
+            border-radius: 15px; 
+            margin-top: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        
+        <div class="slide active">
+            <h1>Happy 3rd Monthversary! 🎉</h1>
+            <p>Ada kejutan kecil spesial buat kamu...</p>
+            <button onclick="nextSlide()">Buka Kejutan</button>
+        </div>
+
+        <div class="slide">
+            <h1>Halo Sayang,</h1>
+            <p>Nggak kerasa kita udah bareng selama 3 bulan. Makasih ya udah jadi bagian hari-hariku yang paling menyenangkan dan selalu ada buat aku.</p>
+            <button onclick="nextSlide()">Lanjut</button>
+        </div>
+
+        <div class="slide">
+            <h1>Memori Kita</h1>
+            <img src="https://via.placeholder.com/400x200?text=Masukkan+Foto+Kalian+Di+Sini" alt="Foto Kita">
+            <p style="font-size: 0.9em; margin-top: 15px;">Salah satu momen favoritku sama kamu.</p>
+            <button onclick="nextSlide()">Lanjut</button>
+        </div>
+
+        <div class="slide">
+            <h1>I Love You! ❤️</h1>
+            <p>Semoga kita bisa terus bikin banyak cerita seru dan bahagia ke depannya. <i>Cheers to us!</i></p>
+            <button onclick="resetSlide()">Peluk Online!</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        // Fungsi untuk menampilkan slide berdasarkan indeks
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        // Fungsi untuk maju ke slide berikutnya
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Fungsi untuk mengulang dari awal (opsional)
+        function resetSlide() {
+            currentSlide = 0;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>
